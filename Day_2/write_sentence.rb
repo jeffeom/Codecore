@@ -1,6 +1,7 @@
 # hello codecore students to
 # Hello Codecore Students
 
+=begin
 array = %w[hello codecore students]
 
 array.each do |word|
@@ -10,6 +11,7 @@ end
 print array, "\n"
 print array.join (" ")
 print "\n"
+=end
 
 =begin
 print "Enter a sentence: "
@@ -37,3 +39,16 @@ end
 
 puts cap_words.join(" ")
 =end
+
+=begin
+print "Enter a sentence: "
+sentence = gets.chomp
+
+words = sentence.split #["hello", "codecore", "students"]
+
+words.map! {|word| word.capitalize} #["Hello", "Codecore", "Students"]
+
+puts words.join(" ")
+=end
+
+puts gets.chomp.split.map {|word| word.capitalize}.join(" ")
