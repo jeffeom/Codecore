@@ -1,3 +1,5 @@
+require "./handy_methods.rb"
+
 class Car
 
   # all the mothods defined insdie HandyMethods are available for us in here
@@ -13,6 +15,7 @@ class Car
     @type = type
   end
 
+  # can call by writing: "c.class.max_speed"
   def self.max_speed
     200
   end
@@ -34,6 +37,10 @@ class Car
   end
 
   private
+
+  def self.test
+    puts "Test method"
+  end
 
   def pump_gas
     puts "Your car needs fuel"
