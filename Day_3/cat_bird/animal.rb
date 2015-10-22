@@ -1,4 +1,4 @@
-class Animal
+class Animal # < Object
 
   attr_accessor :name
 
