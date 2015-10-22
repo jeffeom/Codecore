@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="html, page, first, pracice">
+    <meta name="description" content="This is a practice HTML page">
+    <link rel="stylesheet" href="style.css">
+    <title>My first HTML page</title>
+    <style>
+      h2 {
+        color: blue;
+        font-size: 35px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <nav>: just to show it's a lists of websites -->
+    <nav>
+    <!-- target="_blank" = goes to a new tab -->
+    <a href="http://www.google.com" target="_blank">Google</a>
+    |
+    <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <hr>
+    <!-- headings -->
+    <h1 style="color: red; font-size: 38px;">My First HTML page</h1>
+    <h2>Paragrph Texts</h2>
+    <!-- ctrl + / = to write quotes in atom in every languages -->
+    <!-- &nbsp; = non-breakable space -->
+    <p>Lorem ipsum &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <!-- <br> = to put enter between paragraphs but becuase of the indents we started another <p>. -->
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h2 id="lists">Lists</h2>
+    <h3>Unorderd Lists</h3>
+    <p>Languages to Learn</p>
+    <ul>
+      <li>HTML</li>
+      <li>ruby</li>
+      <li>CSS</li>
+      <li>Javascript</li>
+      <!-- auto indent and different style in html -->
+      <!-- unordered list -->
+      <ul>
+        <li>ES6</li>
+        <li>Coffeescript</li>
+      </ul>
+    </ul>
+
+    <h3>Ordered Lists</h3>
+    <p>Bootcamp Daily Routine</p>
+    <!-- ordered list with numbers -->
+    <ol class="special-list">
+      <li>Wake up</li>
+      <li>Code</li>
+      <li>Have Coffee</li>
+        <ol>
+          <li>Espresso</li>
+          <li>Drip Coffee</li>
+        </ol>
+      <li>Code</li>
+      <li>Have Coffee</li>
+      <li>Code</li>
+      <li>Sleep</li>
+    </ol>
+
+    <h2>Tables</h2>
+    <table border="2">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Phone Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jeff</td>
+          <td>Eom</td>
+          <td>778-778-778</td>
+        </tr>
+        <tr>
+          <td>Tam</td>
+          <td>Kbeili</td>
+          <td>123-123-123</td>
+        </tr>
+        <tr>
+          <td colspan="2">Tom Hanks</td>
+          <td>123-123-123</td>
+        </tr>
+        <tr>
+          <td rowspan="2">Brad</td>
+          <td>Pitt</td>
+          <td>123-123-123</td>
+        </tr>
+        <tr>
+          <td>Smith</td>
+          <td>123-123-123</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <hr> = horizontal rule, puts a horizontal line. -->
+
+    <img
+    src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Penguins_walking_-Moltke_Harbour,_South_Georgia,_British_overseas_territory,_UK-8.jpg" >
+    <br>
+    <img src="images/penguin2.jpg">
+    <br>
+    <a href="#">Top</a>|
+    <a href="#lists">Lists</a>
+
+    <div class="box">
+      <p>Hello World</p>
+      <p class="hi">Hi</p>
+    </div>
+    <hr>
+    <!-- &copy; gives us copyright sign -->
+    <p>&copy; Our Awesome HTML page. Copyright protected</p>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+/*red, #ff0000, rgba(255,0,0,0.5)*/
+body{
+  background: url(images/background.jpg);
+
+}
+h3 {
+  color: rgba(255,0,0,0.5);
+}
+
+p{
+  text-decoration: underline;
+  background-color: cyan;
+
+}
+
+img{
+  width: 40%;
+}
+
+/*this targets the element that has id of lists*/
+#lists {
+  color: purple;
+
+}
+
+/*this targets all ul and ol elements*/
+ul, ol{
+  font-size: 16px;
+  color: blue;
+}
+
+/*this tagets all elements that has class 'special-list'*/
+.special-list{
+  text-decoration: line-through;
+}
+
+/*this targets all li elements nested inside ul elements*/
+ul li{
+  color: red;
+}
+
+.box{
+  height: 100px;
+  width: 100px;
+  background-color: pink;
+}
+
+.box p {
+  background-color: blue;
+  color: yellow;
+}
+
+/*this targets an element with class hi within an element with a class box*/
+.box .hi{
+  color: cyan;
+}
+
+/*this targets an element p with class hi*/
+p.hi{
+  text-decoration: line-through;
+}
+/*targeting p with abc with xyz; not nested so no space*/
+
+/*how to style <p> elements that has a class "abc" and an id "xyz"*/
+p.abc#xyz{
+
+}
+
+/*how to style all <p> elements within a <div> with a class "special"*/
+div.special p {
+
+}
+
+/*how to style all <li> elements within a <ul> elements that has class "special"*/
+ul.special li{
+
+}
