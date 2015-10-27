@@ -1,0 +1,31 @@
+<h1>Thank you for using Team Randomizer</h1>
+<h2>We have received the follwing info: </h2>
+
+  <dev>
+    <p>Team Names:
+      <% team_names = @params["team_names"] %>
+      <%= team_array = team_names.split(",") %>
+    </p>
+    <p>Number of Teams:
+      <% team_number = @params["number_of_teams"].to_i %>
+      <%= team_number %>
+    </p>
+    <p>
+      <% people = (team_array.count / team_number.to_f).ceil %>
+      <% teams = [] %>
+      <% (1..team_number).each do |num| %>
+        <% teams[num-1] = team_array.sample(people) %>
+        <% team_array = team_array - teams[num-1] %>
+      <% end %>
+    </p>
+    <p>
+      <% (1..team_number).each do |num| %>
+      <p>Team
+        <%= num %>
+        :
+      </p>
+        <%= teams[num-1]  %>
+        <br>
+      <% end %>
+    </p>
+  </dev>

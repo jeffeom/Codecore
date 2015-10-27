@@ -10,16 +10,3 @@
   <br>
   <input type="submit" value="Submit">
 </form>
-<hr>
-<div>
-    <% if (@team_names && @team_number) %>
-      <% (1..@team_number).each do |num| %>
-      <p>Team
-        <%= num %>
-        :
-      </p>
-        <%= @teams[num-1]  %>
-        <br>
-        <% end %>
-      <% end %>
-</div>
