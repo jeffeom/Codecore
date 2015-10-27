@@ -10,16 +10,22 @@
   <br>
   <input type="submit" value="Submit">
 </form>
+
 <hr>
+
 <div>
     <% if (@team_names && @team_number) %>
-      <% (1..@team_number).each do |num| %>
-      <p>Team
-        <%= num %>
-        :
-      </p>
-        <%= @teams[num-1]  %>
-        <br>
+      <% if (@team_names != "" && @team_number != 0) %>
+        <% (1..@team_number).each do |num| %>
+          <p>Team
+            <%= num %>
+            :
+          </p>
+          <%= @teams[num-1]  %>
+          <br>
         <% end %>
+      <% else %>
+        <h1>Error: Please type Names and Number of teams correctly.</h1>
       <% end %>
+    <% end %>
 </div>
