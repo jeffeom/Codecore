@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# [awesome_answers]$ bin/rails g model question title:string
+
+100.times do
+  Question.create({title: Faker::Company.bs,
+                   body: Faker::Lorem.paragraph })
+end
+  print Cowsay::say("Created a 100 questions!")
