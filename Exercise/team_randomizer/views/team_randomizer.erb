@@ -13,19 +13,32 @@
 
 <hr>
 
+
 <div>
-    <% if (@team_names && @team_number) %>
-      <% if (@team_names != "" && @team_number != 0) %>
-        <% (1..@team_number).each do |num| %>
-          <p>Team
-            <%= num %>
-            :
-          </p>
-          <%= @teams[num-1]  %>
-          <br>
-        <% end %>
-      <% else %>
-        <h1>Error: Please type Names and Number of teams correctly.</h1>
-      <% end %>
+<% if (@team_names && @team_number) %>
+  <% if (@check_array.count < @team_number) %>
+    <h1>Number of teams cannot be bigger than number of Names. Please try it again</h1>
+
+  <% else %>
+    <% if (@team_names == "")%>
+      <h1> Names are not entered properly. Please try it again. </h1>
     <% end %>
+    <% if (@team_number == 0 || @team_number == nil ) %>
+      <h1> Number of teams is not entered properly. Please try it again. </h1>
+    <% elsif (@team_number < 0)%>
+      <h1> Number of teams should be bigger than Zero. Please try it again. </h1>
+    <% elsif (@team_number.is_a?(Integer) != true) %>
+      <h1> Number of teams is not an integer. Please try it again.</h1>
+    <% end %>
+    <%(1..@team_number).each do |num| %>
+      <p>
+      <%= "Team" %>
+      <%= num %>:
+      </p>
+      <p>
+      <%= @teams[num-1] %>
+      </p>
+      <% end %>
+  <% end %>
+<% end %>
 </div>
