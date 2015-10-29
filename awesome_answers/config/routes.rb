@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'question/new'
+
   # The routes files is basically a set of rules. The routes file isn't aware
   # of controllers' existance.
 
@@ -11,6 +13,9 @@ Rails.application.routes.draw do
   # When using a symbol-like string within a url, this means that
   # it's a variable part of the url (could be anything)
   get "/greeting/:name" => "welcome#greeting", as: :greeting
+
+  get({"/questions/new" => "questions#new", as: :new_question})
+  post({"/questions" => "questions#create", as: :questions })
 
 
   # This maps all GET requests with URL "/hello" to:
