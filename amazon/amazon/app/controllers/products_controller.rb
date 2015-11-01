@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
     @product = Product.new product_params
     if @product.save
       redirect_to product_path(@product)
-      # render text: "Success"
+      render text: "Success"
     else
       render :new # this will render views/products/new.html.erb
     end

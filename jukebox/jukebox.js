@@ -33,5 +33,7 @@ return song;
 }
 
 var onComplete = function (){
+  note = prompt("Enter your song notes: ");
+  playSong(parseSong(note),400,onComplete);
   console.log("Song finished playing");
-}
+  }
