@@ -1,5 +1,7 @@
 class Question < ActiveRecord::Base
 
+    has_many(:answers, {dependent: :destroy})
+
     #validates(:title, {presence: true,
     #                   uniqueness: true})
     validates(:title, {presence: true,

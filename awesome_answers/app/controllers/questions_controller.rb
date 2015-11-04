@@ -33,6 +33,9 @@ class QuestionsController < ApplicationController
     # GET /question/:id
     # you get access to the id in the URL from params[:id]
     def show
+      # we inantiate an empty Answer object as we need a form on the show page
+      # to create an answer for our question
+      @answer = Answer.new
       #render text: params
     end
 

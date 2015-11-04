@@ -13,7 +13,31 @@ Rails.application.routes.draw do
   # When using a symbol-like string within a url, this means that
   # it's a variable part of the url (could be anything)
   # as: :questions and question. Cannot use samething twice.
-  resources :questions
+
+  resources :questions do
+    # this will generate a route that is:
+    # /questions/search
+    # it will automatically give it a path helper: search_questions_path
+    get(:search, {on: :collection})
+
+    # this will generate a route that is:
+    # /questions/:id/search
+    # it will automatically give it a path helper: search_question_path
+    get(:search, {on: :member})
+
+    # this generates nested resource route that is:
+    # /questions/:id/search
+    # it will automatically give it a path helper: question_search_path
+    get(:search)
+
+    # this makes all the answers routes nested wintin the "questions" so all
+    # the standard answers urls will be prepended with:
+    # /questions/:question_id
+    resources :answers
+  end
+
+
+  #resources :questions
   # get "/greeting/:name"    => "welcome#greeting", as: :greeting
   # get({"/questions/new"    => "questions#new",    as: :new_question})
   # post({"/questions"       => "questions#create", as: :questions })
