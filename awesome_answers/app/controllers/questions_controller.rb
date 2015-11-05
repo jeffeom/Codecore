@@ -6,14 +6,15 @@ class QuestionsController < ApplicationController
   # before_action(:find_question, {except })
 
   def new
-      # the default behaviour of controller action is to render a template
-      # within a folder with the same controller name. Using the format/templating
-      # language used. In this case we're using the default format which is HTML
-      # we are using the default templating language which is ERB
-      # So the controller action will render template:
-      # views/questions/new.html.erb
-      @q = Question.new
-    end
+    authenticate_user
+    # the default behaviour of controller action is to render a template
+    # within a folder with the same controller name. Using the format/templating
+    # language used. In this case we're using the default format which is HTML
+    # we are using the default templating language which is ERB
+    # So the controller action will render template:
+    # views/questions/new.html.erb
+    @q = Question.new
+  end
 
     def create
       @q = Question.new(question_params)
@@ -43,17 +44,18 @@ class QuestionsController < ApplicationController
     end
 
     def update
-      question_params = params.require(:question).permit([:title, :body])
       if @q.update(question_params)
-        # render text: "inside update #{params}"
         redirect_to question_path(@q), notice: "Question updated!"
+        # render text: "inside update #{params}"
       else
         render :edit
       end
     end
+
     def index
       @questions = Question.all
     end
+
     def destroy
       @q.destroy
       flash[:notice] = "Question deleted successfully"

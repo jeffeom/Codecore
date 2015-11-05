@@ -8,10 +8,17 @@ class AnswersController < ApplicationController
     # this associates the @answer with question "q"
     @answer.question = @q
     if @answer.save
-      redirect_to question_path(@q)
+      redirect_to question_path(@q), notice: "Answer created successfully!"
     else
       # flash[:alert] = @answer.errors.full_messages.join(", ")
       render "questions/show"
     end
   end
+
+  def destroy
+    answer = Answer.find params[:id]
+    answer.destroy
+    redirect_to question_path(answer.question), notice: "Answer deleted!"
+  end
+
 end

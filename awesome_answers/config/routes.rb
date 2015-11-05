@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
+  resources :users, only: [:new, :create]
+  resources :sessions, only: [:new, :create] do
+    delete :destroy, on: :collection
+  end
 
   get 'question/new'
 
   # The routes files is basically a set of rules. The routes file isn't aware
   # of controllers' existance.
 
+  root "questions#index"
   get "/index" => "welcome#index"
   # get({"/home" => "welcome#index", as: :hey})
   get "/home" => "welcome#index", as: :hey
@@ -54,7 +59,7 @@ Rails.application.routes.draw do
   get "/hello" => "welcome#hello"
 
   #get("/" => "welcome#index")
-  root "welcome#index"
+  # root "welcome#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
