@@ -7,6 +7,11 @@ class QuestionsController < ApplicationController
   # before_action(:find_question, {except [:index, :new, :create] })
   before_action :find_question, only: [:show, :edit, :update, :destroy]
 
+  # we usually use the word 'authenticate' to refer to signing in or out with
+  # eamil and password. We use the word 'authorize' to refer to enforcing
+  # permissions for specific actions.
+  before_action :authorize, only: [:edit, :update, :destroy]
+
   def new
     # the default behaviour of controller action is to render a template
     # within a folder with the same controller name. Using the format/templating
@@ -43,6 +48,9 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    if current_user != @q.user
+      redirect_to root_path, alert: "Access Denied" unless can? :edit, @q
+    end
   end
 
   def update
@@ -55,7 +63,8 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all
+    Rails.logger.error ">>>>>>>>>>>> #{current_user }"
+    @questions = Question.recent_ten
   end
 
   def destroy
@@ -76,5 +85,9 @@ class QuestionsController < ApplicationController
 
   def find_question
     @q = Question.find params[:id]
+  end
+
+  def authorize
+    redirect_to root_path, alert: "Access Denied!" unless can? :manage, @q
   end
 end
